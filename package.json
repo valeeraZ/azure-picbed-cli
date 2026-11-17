@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "description": "Upload images to a public Azure DevOps Git repository and verify anonymous image URLs",
   "type": "module",
-  "private": true,
+  "files": ["src/", "docs/", "azure-picbed.example.json"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valeeraZ/azure-picbed-cli.git"
+  },
+  "homepage": "https://github.com/valeeraZ/azure-picbed-cli#readme",
+  "bugs": { "url": "https://github.com/valeeraZ/azure-picbed-cli/issues" },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
   "bin": { "azure-picbed": "./src/cli.js" },
   "engines": { "node": ">=22" },
   "scripts": {
+    "prepublishOnly": "npm run check && npm test",
     "test": "node --test",
     "check": "node --check src/cli.js && node --check src/config.js && node --check src/configure.js && node --check src/picbed.js"
   }
