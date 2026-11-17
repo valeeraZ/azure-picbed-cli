@@ -5,11 +5,13 @@ Use this guide when a coding agent needs to upload a local image and insert a pu
 ## Prerequisites
 
 - Node.js 22 or newer.
-- This CLI checked out locally, or `azure-picbed` available after a human runs `npm link` in its repository.
+- The `azure-picbed` command installed from npm: `npm install -g azure-picbed-cli`.
 - An existing configuration file with a public Azure DevOps Git repository and a PAT, either in `azure.token` or in the environment variable named by `azure.tokenEnv` (default `AZURE_DEVOPS_PAT`).
 - PAT permissions: Code Read & write and permission to commit directly to the target branch.
 
 Do not print configuration files, PATs or Authorization headers. Uploading writes to public Git history; use the image and repository intended by the user.
+
+The package name is `azure-picbed-cli`; the executable name is `azure-picbed`. A source checkout is not required. See the [npm package](https://www.npmjs.com/package/azure-picbed-cli) for installation.
 
 ## Set up configuration
 
@@ -19,7 +21,7 @@ Do not print configuration files, PATs or Authorization headers. Uploading write
 azure-picbed config --config /absolute/path/to/azure-picbed.json
 ```
 
-Without a global command, use `node /absolute/path/to/azure-picbed-cli/src/cli.js` in place of `azure-picbed` in every example.
+For a source checkout used during development, `node /absolute/path/to/azure-picbed-cli/src/cli.js` can replace `azure-picbed` in every example.
 
 For unattended configuration, write a JSON file with an environment-variable reference if the repository details and credentials are already available through the user's environment. Do not invent repository names or request that the user paste a PAT into chat.
 

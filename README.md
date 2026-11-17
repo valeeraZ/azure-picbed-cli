@@ -2,26 +2,35 @@
 
 Upload local images to a public Azure DevOps Git repository and return anonymous image URLs pinned to an immutable commit. No clone, build step or runtime dependencies required. Requires Node.js 22 or newer.
 
+[Available on npm](https://www.npmjs.com/package/azure-picbed-cli).
+
 Coding agents: start with [docs/agent-usage.md](docs/agent-usage.md) for the upload-to-Markdown workflow and machine-readable error handling.
 
 ## Quick start
 
-Run from this repository:
+Install from npm:
 
 ```sh
-node src/cli.js config
-node src/cli.js help
-node src/cli.js upload ./photo.png --output markdown --alt "Example photo"
+npm install -g azure-picbed-cli
 ```
 
-Optionally run `npm link` in this repository to make `azure-picbed` available globally:
+Configure your public Azure DevOps repository and upload an image:
 
 ```sh
 azure-picbed config
+azure-picbed help
 azure-picbed upload ./photo.png --output markdown --alt "Example photo"
 ```
 
 Successful Markdown output contains exactly one ready-to-insert image line, with no banners or progress messages. Stderr is empty on upload success.
+
+The npm package is named `azure-picbed-cli`; the installed command is `azure-picbed`. Run commands in the directory containing your `azure-picbed.json`, or pass `--config /absolute/path/to/azure-picbed.json`.
+
+To update an existing installation:
+
+```sh
+npm install -g azure-picbed-cli@latest
+```
 
 ## Commands
 
@@ -135,6 +144,18 @@ The existing real-repository JPEG was verified in a browser after the URL fix. I
 Public Git history can retain uploaded images and paths after file deletion, and repository history grows with new images.
 
 ## Development
+
+To work on the CLI itself, clone the repository and run the source directly:
+
+```sh
+git clone https://github.com/valeeraZ/azure-picbed-cli.git
+cd azure-picbed-cli
+node src/cli.js help
+```
+
+No dependency installation or build step is required. For local development, `npm link` makes the source checkout available as the `azure-picbed` command.
+
+Run the checks:
 
 ```sh
 npm run check
