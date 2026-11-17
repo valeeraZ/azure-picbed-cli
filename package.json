@@ -1,0 +1,13 @@
+{
+  "name": "azure-picbed-cli",
+  "version": "0.1.0",
+  "description": "Upload images to a public Azure DevOps Git repository and verify anonymous image URLs",
+  "type": "module",
+  "private": true,
+  "bin": { "azure-picbed": "./src/cli.js" },
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/cli.js && node --check src/config.js && node --check src/configure.js && node --check src/picbed.js"
+  }
+}

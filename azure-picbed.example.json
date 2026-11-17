@@ -1,0 +1,11 @@
+{
+  "azure": {
+    "organization": "your-organization",
+    "project": "your-public-project",
+    "repo": "your-repository",
+    "directory": "/images",
+    "token": "your-personal-access-token"
+  },
+  "maxSizeMiB": 10,
+  "timeoutMs": 30000
+}
